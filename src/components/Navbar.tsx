@@ -1,4 +1,5 @@
 import { Download } from 'lucide-react';
+import logoUrl from '../assets/images/logoo.png';
 
 export function Navbar() {
   return (
@@ -6,7 +7,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-[45px] h-[45px] flex items-center justify-center overflow-hidden">
-            <img src="/logoo.png" alt="TaskFlow Logo" width="45" height="45" className="w-full h-full object-contain" style={{ imageRendering: 'crisp-edges' }} />
+            <img src={logoUrl} alt="TaskFlow Logo" width="45" height="45" className="w-full h-full object-contain" style={{ imageRendering: 'crisp-edges' }} />
           </div>
           <span className="text-2xl font-heading font-bold text-slate-900 tracking-tight">TaskFlow</span>
         </div>

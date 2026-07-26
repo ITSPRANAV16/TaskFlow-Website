@@ -1,4 +1,5 @@
 import { Github, Instagram, Mail } from 'lucide-react';
+import logoUrl from '../assets/images/logoo.png';
 
 export function Footer() {
   return (
@@ -10,7 +11,7 @@ export function Footer() {
           <div className="flex flex-col items-center md:items-start gap-8">
             <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-[#0A0F1D] rounded-full border-2 border-white shadow-[4px_4px_0px_rgba(255,255,255,1)] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0px_rgba(255,255,255,1)] transition-all">
               <div className="w-[28px] h-[28px] flex items-center justify-center overflow-hidden">
-                <img src="/logoo.png" alt="TaskFlow Logo" width="28" height="28" className="w-full h-full object-contain" style={{ imageRendering: 'crisp-edges' }} />
+                <img src={logoUrl} alt="TaskFlow Logo" width="28" height="28" className="w-full h-full object-contain" style={{ imageRendering: 'crisp-edges' }} />
               </div>
               <span className="text-xl font-heading font-black text-white tracking-wider uppercase">TaskFlow</span>
             </div>

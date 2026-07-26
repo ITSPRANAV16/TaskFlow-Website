@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Download, Github, Smartphone } from 'lucide-react';
+import logoUrl from '../assets/images/logoo.png';
 
 export function Hero() {
   return (
@@ -11,7 +12,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <img src="/logoo.png" alt="TaskFlow Logo" width="150" height="150" className="w-[150px] h-[150px] object-contain mb-8 mx-auto lg:mx-0 drop-shadow-[0_0_30px_rgba(99,102,241,0.4)] relative z-10" style={{ imageRendering: 'crisp-edges' }} />
+            <img src={logoUrl} alt="TaskFlow Logo" width="150" height="150" className="w-[150px] h-[150px] object-contain mb-8 mx-auto lg:mx-0 drop-shadow-[0_0_30px_rgba(99,102,241,0.4)] relative z-10" style={{ imageRendering: 'crisp-edges' }} />
             
             <div className="flex items-center gap-2 py-1.5 px-4 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-700 text-sm font-medium mb-8 backdrop-blur-sm w-fit mx-auto lg:mx-0">
               <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
