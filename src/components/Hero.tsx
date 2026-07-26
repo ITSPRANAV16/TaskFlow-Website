@@ -1,8 +1,11 @@
 import { motion } from 'motion/react';
 import { Download, Github, Smartphone } from 'lucide-react';
 import logoUrl from '../assets/images/logoo.png';
+import { useGitHubRelease } from '../hooks/useGitHubRelease';
 
 export function Hero() {
+  const { releaseData } = useGitHubRelease();
+
   return (
     <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-screen flex items-center">
       <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20 w-full">
@@ -16,7 +19,7 @@ export function Hero() {
             
             <div className="flex items-center gap-2 py-1.5 px-4 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-700 text-sm font-medium mb-8 backdrop-blur-sm w-fit mx-auto lg:mx-0">
               <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-              v1.0.1 Now Available • 17.8 MB
+              {releaseData.version} Now Available • 17.8 MB (Lightweight & Optimized)
             </div>
             
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold font-heading tracking-tight mb-4 text-slate-900 leading-tight">

@@ -1,16 +1,18 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { Smartphone, Cpu, HardDrive, LayoutGrid } from 'lucide-react';
-
-const architectures = [
-  { id: 'arm64-v8a', label: 'ARM64-V8A (RECOMMENDED)', icon: Smartphone, size: '17.8 MB', fileUrl: 'https://github.com/ITSPRANAV16/TaskFlow/releases/download/v1.0.4/app-arm64-v8a-release.apk' },
-  { id: 'armeabi-v7a', label: 'ARMV7 (32-BIT)', icon: Cpu, size: '15.5 MB', fileUrl: 'https://github.com/ITSPRANAV16/TaskFlow/releases/download/v1.0.4/app-armeabi-v7a-release.apk' },
-  { id: 'x86_64', label: 'X86_64', icon: HardDrive, size: '19.2 MB', fileUrl: 'https://github.com/ITSPRANAV16/TaskFlow/releases/download/v1.0.4/app-x86_64-release.apk' },
-  { id: 'universal', label: 'UNIVERSAL', icon: LayoutGrid, size: '24.5 MB', fileUrl: 'https://github.com/ITSPRANAV16/TaskFlow/releases/tag/v1.0.4' },
-];
+import { useGitHubRelease } from '../hooks/useGitHubRelease';
 
 export function DirectDownload() {
   const [selectedArch, setSelectedArch] = useState<string>('arm64-v8a');
+  const { releaseData } = useGitHubRelease();
+
+  const architectures = [
+    { id: 'arm64-v8a', label: 'ARM64-V8A (RECOMMENDED)', icon: Smartphone, size: '17.8 MB', fileUrl: releaseData.assets.arm64 },
+    { id: 'armeabi-v7a', label: 'ARMV7 (32-BIT)', icon: Cpu, size: '15.5 MB', fileUrl: releaseData.assets.arm7 },
+    { id: 'x86_64', label: 'X86_64', icon: HardDrive, size: '19.2 MB', fileUrl: releaseData.assets.x86_64 },
+    { id: 'universal', label: 'UNIVERSAL', icon: LayoutGrid, size: '24.5 MB', fileUrl: releaseData.assets.universal },
+  ];
 
   const selectedData = architectures.find(a => a.id === selectedArch) || architectures[0];
 

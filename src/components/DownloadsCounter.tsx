@@ -1,37 +1,18 @@
 import { motion, useInView } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import { DownloadCloud } from 'lucide-react';
+import { useGitHubRelease } from '../hooks/useGitHubRelease';
 
 export function DownloadsCounter() {
-  const [targetCount, setTargetCount] = useState<number | null>(null);
+  const { releaseData, loading } = useGitHubRelease();
   const [displayCount, setDisplayCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  useEffect(() => {
-    fetch('https://api.github.com/repos/ITSPRANAV16/TaskFlow/releases')
-      .then(res => res.json())
-      .then(data => {
-        if (Array.isArray(data)) {
-          let total = 0;
-          data.forEach(release => {
-            if (release.assets && Array.isArray(release.assets)) {
-              release.assets.forEach(asset => {
-                total += asset.download_count || 0;
-              });
-            }
-          });
-          setTargetCount(total);
-        }
-      })
-      .catch(err => {
-        console.error('Failed to fetch downloads', err);
-        setTargetCount(0);
-      });
-  }, []);
+  const targetCount = releaseData.totalDownloads;
 
   useEffect(() => {
-    if (isInView && targetCount !== null && targetCount > 0) {
+    if (isInView && !loading && targetCount > 0) {
       let startTimestamp: number;
       const duration = 2000; // 2 seconds
 
@@ -52,7 +33,7 @@ export function DownloadsCounter() {
       
       window.requestAnimationFrame(step);
     }
-  }, [isInView, targetCount]);
+  }, [isInView, loading, targetCount]);
 
   return (
     <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative z-10" ref={ref}>
@@ -72,12 +53,12 @@ export function DownloadsCounter() {
           </div>
           <div>
             <h3 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 tracking-tight flex items-center">
-              {targetCount === null ? (
+              {loading ? (
                 <span className="w-16 h-10 bg-slate-100 rounded animate-pulse inline-block"></span>
               ) : (
                 `${displayCount.toLocaleString()}`
               )}
-              {targetCount !== null && <span className="text-blue-600 ml-1">+</span>}
+              {!loading && <span className="text-blue-600 ml-1">+</span>}
             </h3>
             <p className="text-slate-500 font-medium mt-1">Total Downloads Worldwide</p>
           </div>

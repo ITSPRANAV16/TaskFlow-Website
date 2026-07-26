@@ -3,9 +3,20 @@ import { useState } from 'react';
 
 const changelogData = [
   {
+    version: "V1.0.5",
+    date: "27 July 2026",
+    isLatest: true,
+    items: [
+      "🧹 Clean First Install: Removed sample default tasks for 100% clean experience",
+      "🛡️ Automated Crash Reporting System (catches crashes & logs to GitHub Issues API)",
+      "📱 Dynamic Version System in About Sheet",
+      "⚡ 17.8 MB Optimized APK Size & 100% Passed CI/CD Automated Tests"
+    ]
+  },
+  {
     version: "V1.0.4",
     date: "26 July 2026",
-    isLatest: true,
+    isLatest: false,
     items: [
       "Added Automated Crash Reporting System (catch unhandled errors & post to GitHub Issues API)",
       "Optimized APK size to just 17.8 MB (80% smaller)",
@@ -36,7 +47,7 @@ const changelogData = [
   }
 ];
 
-function DevLogCard({ version, date, isLatest, items }: { version: string, date: string, isLatest: boolean, items: string[] }) {
+function DevLogCard({ version, date, isLatest, items }: { key?: number | string, version: string, date: string, isLatest: boolean, items: string[] }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -123,7 +134,7 @@ export function DevLog() {
             {/* Cards */}
             <div className="flex flex-col gap-12 md:gap-24 relative z-10">
               {changelogData.map((entry, idx) => (
-                 <DevLogCard key={idx} {...entry} />
+                 <DevLogCard key={idx} version={entry.version} date={entry.date} isLatest={entry.isLatest} items={entry.items} />
               ))}
             </div>
           </div>
