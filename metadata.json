@@ -1,0 +1,6 @@
+{
+  "name": "TaskFlow Website",
+  "description": "A modern, premium landing page for the TaskFlow Android app.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
