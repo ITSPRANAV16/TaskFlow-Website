@@ -42,7 +42,7 @@ export function DirectDownload() {
               return (
                 <label
                   key={arch.id}
-                  className={`relative flex items-center p-4 cursor-pointer rounded-2xl border-2 transition-all duration-200 ${
+                  className={`relative flex items-center w-full p-3 sm:p-4 cursor-pointer rounded-2xl border-2 transition-all duration-200 overflow-hidden ${
                     isSelected
                       ? 'bg-[#E2E8F0] border-[#E2E8F0]'
                       : 'bg-[#121318] border-white hover:bg-slate-900 hover:translate-x-1'
@@ -57,22 +57,22 @@ export function DirectDownload() {
                     className="sr-only"
                   />
                   
-                  <div className="flex flex-1 items-center gap-4">
-                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center border-2 ${
+                  <div className="flex flex-1 items-center gap-3 sm:gap-4 min-w-0 pr-1 sm:pr-2">
+                    <div className={`w-10 h-10 flex-shrink-0 rounded-lg flex items-center justify-center border-2 ${
                       isSelected ? 'bg-white border-black text-black' : 'bg-[#121318] border-white text-white'
                     }`}>
-                      <arch.icon className="w-5 h-5" />
+                      <arch.icon className="w-5 h-5 flex-shrink-0" />
                     </div>
                     
-                    <div className="flex-1">
-                      <h4 className={`font-bold tracking-wide uppercase ${isSelected ? 'text-black' : 'text-white'}`}>
+                    <div className="flex-1 min-w-0">
+                      <h4 className={`font-bold tracking-wide uppercase text-sm sm:text-base leading-snug sm:leading-normal whitespace-normal break-words ${isSelected ? 'text-black' : 'text-white'}`}>
                         {arch.label}
                       </h4>
                     </div>
                   </div>
 
                   {/* Custom Radio Circle indicator */}
-                  <div className={`ml-4 w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
+                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
                     isSelected ? 'border-black' : 'border-white'
                   }`}>
                     {isSelected && <div className="w-2.5 h-2.5 rounded-full bg-black"></div>}

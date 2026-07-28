@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Github, Instagram } from 'lucide-react';
+import pranavPhotoUrl from '../assets/images/pranavphoto.png';
 
 export function Developer() {
   return (
@@ -16,7 +17,7 @@ export function Developer() {
           <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-sky-400 rounded-full blur-xl opacity-30 animate-pulse"></div>
           <div className="relative w-full h-full rounded-full bg-gradient-to-tr from-blue-600 to-sky-400 p-1">
             <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
-              <img src="/pranavphoto.png" alt="Pranav Patil" className="w-full h-full object-cover object-[center_20%]" />
+              <img src={pranavPhotoUrl} alt="Pranav Patil" className="w-full h-full object-cover object-[center_20%]" />
             </div>
           </div>
         </div>
