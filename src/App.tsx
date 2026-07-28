@@ -1,12 +1,17 @@
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { KeyStats } from './components/KeyStats';
 import { Marquee } from './components/Marquee';
 import { DownloadsCounter } from './components/DownloadsCounter';
 import { Features } from './components/Features';
+import { Shortcuts } from './components/Shortcuts';
 import { Screenshots } from './components/Screenshots';
+import { ProductivityQuiz } from './components/ProductivityQuiz';
 import { DevLog } from './components/DevLog';
 import { DirectDownload } from './components/DirectDownload';
 import { TechStack } from './components/TechStack';
+import { Testimonials } from './components/Testimonials';
+import { FAQ } from './components/FAQ';
 import { Developer } from './components/Developer';
 import { Footer } from './components/Footer';
 
@@ -23,13 +28,18 @@ export default function App() {
         <Navbar />
         <main>
           <Hero />
+          <KeyStats />
           <Marquee />
           <DownloadsCounter />
           <Features />
+          <Shortcuts />
           <Screenshots />
+          <ProductivityQuiz />
           <DevLog />
           <DirectDownload />
           <TechStack />
+          <Testimonials />
+          <FAQ />
           <Developer />
         </main>
         <Footer />

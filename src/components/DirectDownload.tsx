@@ -1,7 +1,8 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
-import { Smartphone, Cpu, HardDrive, LayoutGrid } from 'lucide-react';
+import { Smartphone, Cpu, HardDrive, LayoutGrid, QrCode } from 'lucide-react';
 import { useGitHubRelease } from '../hooks/useGitHubRelease';
+import { QRCodeSVG } from 'qrcode.react';
 
 export function DirectDownload() {
   const [selectedArch, setSelectedArch] = useState<string>('arm64-v8a');
@@ -17,14 +18,15 @@ export function DirectDownload() {
   const selectedData = architectures.find(a => a.id === selectedArch) || architectures[0];
 
   return (
-    <section id="download" className="py-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto relative z-10 font-sans">
+    <section id="download" className="py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10 font-sans">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
+        className="grid grid-cols-1 lg:grid-cols-3 gap-8"
       >
-        <div className="bg-[#121318] rounded-3xl border-2 border-[#121318] shadow-[8px_8px_0px_rgba(255,255,255,1)] p-6 md:p-10 w-full relative overflow-hidden flex flex-col">
+        <div className="bg-[#121318] rounded-3xl border-2 border-[#121318] shadow-[8px_8px_0px_rgba(255,255,255,1)] p-6 md:p-10 w-full relative overflow-hidden flex flex-col lg:col-span-2">
           
           {/* Card Header */}
           <div className="mb-8">
@@ -109,6 +111,28 @@ export function DirectDownload() {
             </a>
           </div>
 
+        </div>
+
+        {/* QR Code Section */}
+        <div className="bg-[#121318] rounded-3xl border-2 border-[#121318] shadow-[8px_8px_0px_rgba(255,255,255,1)] p-6 md:p-10 w-full relative overflow-hidden flex flex-col items-center justify-center text-center">
+           <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mb-6">
+             <QrCode className="w-8 h-8 text-blue-400" />
+           </div>
+           <h3 className="text-xl font-black text-white tracking-widest uppercase mb-2">Scan to Download</h3>
+           <p className="text-slate-400 text-sm font-medium mb-8">Point your mobile camera at this QR code to download the latest APK directly.</p>
+           
+           <div className="bg-white p-4 rounded-2xl border-4 border-slate-200 shadow-xl inline-block">
+             <QRCodeSVG 
+               value="https://github.com/ITSPRANAV16/TaskFlow/releases/latest"
+               size={180}
+               bgColor={"#ffffff"}
+               fgColor={"#000000"}
+               level={"H"}
+               includeMargin={false}
+             />
+           </div>
+           
+           <p className="text-slate-500 font-bold text-xs mt-8 uppercase tracking-widest">Supports Android 8.0+</p>
         </div>
       </motion.div>
     </section>

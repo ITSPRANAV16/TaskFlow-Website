@@ -1,10 +1,35 @@
-import { Github, Instagram, Mail } from 'lucide-react';
+import { Github, Instagram, Mail, Star } from 'lucide-react';
 import logoUrl from '../assets/images/logoo.png';
 
 export function Footer() {
   return (
     <footer className="bg-[#0A0F1D] border-t border-[#1E293B] relative z-20 overflow-hidden font-sans">
       <div className="max-w-7xl mx-auto px-4 py-16 sm:py-20">
+        
+        {/* Support Card */}
+        <div className="mb-16 md:mb-24">
+          <div className="bg-[#121318] border-2 border-white/10 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden group hover:border-blue-500/30 transition-colors duration-500">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+            <div className="relative z-10 text-center md:text-left">
+              <h2 className="text-2xl md:text-3xl font-bold font-heading text-white tracking-tight mb-2">
+                LIKE TASKFLOW? SUPPORT THE DEVELOPER
+              </h2>
+              <p className="text-slate-400 font-medium">
+                Your support helps keep this project free and open-source forever.
+              </p>
+            </div>
+            <a 
+              href="https://github.com/ITSPRANAV16/TaskFlow"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative z-10 flex items-center gap-2 px-8 py-4 bg-white text-slate-900 font-bold uppercase tracking-wider rounded-xl hover:bg-slate-200 transition-colors shadow-[4px_4px_0px_rgba(59,130,246,0.5)] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0px_rgba(59,130,246,0.5)]"
+            >
+              <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+              Star on GitHub
+            </a>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8">
           
           {/* Left Column */}

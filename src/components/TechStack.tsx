@@ -1,12 +1,12 @@
 import { motion } from 'motion/react';
 
 const tech = [
-  { name: "Flutter", tag: "UI Framework", version: "v3.41.3" },
-  { name: "Dart", tag: "Language", version: "v3.11.1" },
-  { name: "Provider", tag: "State Management" },
-  { name: "SharedPreferences", tag: "Data Persistence" },
-  { name: "GitHub Actions", tag: "CI/CD" },
-  { name: "REST API", tag: "Auto Updates" },
+  { name: "Flutter", tag: "UI Framework", version: "v3.41.3", icon: "💙", gradient: "from-cyan-400 to-blue-500" },
+  { name: "Dart", tag: "Language", version: "v3.11.1", icon: "🎯", gradient: "from-sky-400 to-cyan-500" },
+  { name: "GitHub Actions", tag: "CI/CD Pipeline", icon: "⚙️", gradient: "from-slate-600 to-slate-800" },
+  { name: "GitHub Issues API", tag: "Crash Reporter", icon: "🛡️", gradient: "from-purple-500 to-pink-500" },
+  { name: "Provider", tag: "State Management", icon: "📦", gradient: "from-amber-400 to-orange-500" },
+  { name: "SharedPreferences", tag: "Data Persistence", icon: "💾", gradient: "from-emerald-400 to-teal-500" },
 ];
 
 export function TechStack() {
@@ -42,13 +42,16 @@ export function TechStack() {
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.4 }}
-                className="bg-white/80 backdrop-blur-md border border-slate-200 p-6 rounded-3xl text-center hover:border-blue-300 hover:bg-white transition-all duration-300 group shadow-sm hover:shadow-md"
+                className="bg-white/80 backdrop-blur-md border border-slate-200 p-4 sm:p-6 rounded-3xl text-center hover:border-slate-300 hover:bg-white transition-all duration-300 group shadow-sm hover:shadow-xl hover:-translate-y-1 flex flex-col items-center justify-center"
               >
-                <h4 className="font-heading font-semibold text-lg text-slate-700 mb-1 group-hover:text-slate-900 transition-colors">{item.name}</h4>
+                <div className={`w-12 h-12 rounded-xl mb-4 flex items-center justify-center text-2xl bg-gradient-to-br ${item.gradient} text-white shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300`}>
+                  {item.icon}
+                </div>
+                <h4 className="font-heading font-semibold text-sm sm:text-base xl:text-lg text-slate-700 mb-1 group-hover:text-slate-900 transition-colors break-words hyphens-auto leading-tight">{item.name}</h4>
                 <p className="text-xs font-medium text-slate-500">{item.tag}</p>
                 {item.version && (
                   <div className="mt-4">
-                    <span className="inline-block text-[10px] font-bold tracking-wider bg-slate-100 text-slate-500 px-3 py-1 rounded-full group-hover:bg-blue-100 group-hover:text-blue-700 transition-colors">
+                    <span className="inline-block text-[10px] font-bold tracking-wider bg-slate-100 text-slate-500 px-3 py-1 rounded-full group-hover:bg-slate-200 group-hover:text-slate-700 transition-colors">
                       {item.version}
                     </span>
                   </div>
