@@ -4,7 +4,6 @@ import { KeyStats } from './components/KeyStats';
 import { Marquee } from './components/Marquee';
 import { DownloadsCounter } from './components/DownloadsCounter';
 import { Features } from './components/Features';
-import { Shortcuts } from './components/Shortcuts';
 import { Screenshots } from './components/Screenshots';
 import { ProductivityQuiz } from './components/ProductivityQuiz';
 import { DevLog } from './components/DevLog';
@@ -32,7 +31,6 @@ export default function App() {
           <Marquee />
           <DownloadsCounter />
           <Features />
-          <Shortcuts />
           <Screenshots />
           <ProductivityQuiz />
           <DevLog />

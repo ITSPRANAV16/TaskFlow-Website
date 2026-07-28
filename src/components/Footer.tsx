@@ -1,4 +1,4 @@
-import { Github, Instagram, Mail, Star } from 'lucide-react';
+import { Github, Instagram, Mail, Star, Globe } from 'lucide-react';
 import logoUrl from '../assets/images/logoo.png';
 
 export function Footer() {
@@ -95,11 +95,23 @@ export function Footer() {
           {/* Right Column (LEGAL) */}
           <div className="flex flex-col items-center md:items-start gap-6">
             <h3 className="text-white font-bold text-lg tracking-widest uppercase relative inline-block w-fit">
-              LEGAL
+              LEGAL & PREFERENCES
               <span className="absolute -bottom-2 left-0 w-1/2 h-1 bg-white"></span>
             </h3>
             
             <div className="flex flex-col items-center md:items-start gap-3 mt-4 text-center md:text-left">
+              <div className="relative mb-4">
+                <select className="appearance-none bg-[#121318] border-2 border-slate-700 text-white font-bold text-sm px-4 py-2 pr-10 rounded-xl hover:border-slate-500 focus:outline-none focus:border-blue-500 transition-colors shadow-sm cursor-pointer">
+                  <option value="en">English (US)</option>
+                  <option value="mr">मराठी (Marathi)</option>
+                  <option value="hi">हिंदी (Hindi)</option>
+                  <option value="es">Español (Spanish)</option>
+                  <option value="fr">Français (French)</option>
+                </select>
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                  <Globe className="w-4 h-4" />
+                </div>
+              </div>
               <p className="text-slate-400 text-sm font-medium leading-relaxed">
                 Copyright © 2026 TaskFlow. All Rights Reserved.
               </p>
